@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>TaskFlow - Intelligent Task Management for Modern Teams</title>
+    <meta name="description" content="TaskFlow helps teams collaborate seamlessly with intelligent task management, real-time updates, and AI-powered insights. Increase productivity by 40%.">
+    <meta name="keywords" content="task management, team collaboration, productivity software, project management, SaaS">
+    <meta name="author" content="TaskFlow">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://taskflow.ai">
+    <meta property="og:title" content="TaskFlow - Intelligent Task Management for Modern Teams">
+    <meta property="og:description" content="Streamline collaboration with AI-powered task management designed for modern teams.">
+    <meta property="og:image" content="https://taskflow.ai/og-image.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://taskflow.ai">
+    <meta name="twitter:title" content="TaskFlow - Task Management Platform">
+    <meta name="twitter:description" content="Streamline collaboration with AI-powered task management.">
+    <meta name="twitter:image" content="https://taskflow.ai/twitter-image.jpg">
+    
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://taskflow.ai">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .animate-slide-left {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+        
+        .animate-slide-right {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        /* Dashboard image animation */
+        .dashboard-image {
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes imageFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .hero-glow {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% {
+                opacity: 0.25;
+                blur: 3xl;
+            }
+            50% {
+                opacity: 0.4;
+            }
+        }
+        
+        /* Popular badge animation */
+        .popular-badge {
+            animation: badgeBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgeBounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        /* Button scale animation on hover */
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Stagger animations */
+        .stagger-item:nth-child(1) { animation-delay: 0s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.1s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.2s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.3s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.4s; }
+        .stagger-item:nth-child(6) { animation-delay: 0.5s; }
+        
+        /* Button animations */
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Scroll reveal */
+        .scroll-reveal {
+            opacity: 0;
+        }
+        
+        .scroll-reveal.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full top-0 z-50 glass shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">T</span>
+                    </div>
+                    <span class="font-bold text-xl text-gray-900">TaskFlow</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="text-gray-700 hover:text-indigo-600 transition">Features</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-indigo-600 transition">Pricing</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-indigo-600 transition">Testimonials</a>
+                    <a href="#faq" class="text-gray-700 hover:text-indigo-600 transition">FAQ</a>
+                </div>
+                
+                <!-- CTA & Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <a href="#pricing" class="hidden sm:inline-block px-4 py-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition">
+                        Log In
+                    </a>
+                    <button class="hidden sm:block px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition btn-hover">
+                        Get Started
+                    </button>
+                    <button class="md:hidden hamburger focus:outline-none" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden mobile-menu hidden border-t border-gray-200">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#features" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 rounded-lg transition">Features</a>
+                <a href="#pricing" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 rounded-lg transition">Pricing</a>
+                <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 rounded-lg transition">Testimonials</a>
+                <a href="#faq" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 rounded-lg transition">FAQ</a>
+                <button class="w-full mt-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-indigo-50 to-purple-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fade-in-up">
+                    <div class="inline-block mb-4 px-4 py-2 bg-indigo-100 text-indigo-900 rounded-full text-sm font-bold">
+                        ✨ Trusted by 5,000+ teams worldwide
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Manage tasks with
+                        <span class="gradient-text"> intelligence</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        TaskFlow combines AI-powered insights with intuitive collaboration tools. Help your team work smarter, not harder. Increase productivity by 40% on day one.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <button class="px-8 py-4 bg-gradient-bg text-gray-900 rounded-lg font-semibold hover:shadow-2xl transition btn-hover" onclick="trackEvent('cta_click', 'hero_primary')">
+                            Start Free Trial
+                        </button>
+                        <button class="px-8 py-4 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-indigo-600 hover:text-indigo-600 transition btn-hover" onclick="trackEvent('cta_click', 'hero_secondary')">
+                            Watch Demo
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-8 text-sm text-gray-600">
+                        <div>
+                            <div class="font-bold text-gray-900">14 days</div>
+                            <div>Free trial</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">No credit card</div>
+                            <div>required</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">24/7 support</div>
+                            <div>included</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Visual - Dashboard Image -->
+             <img 
+  src="public/hero.jpg" 
+  alt="TaskFlow Dashboard Preview" 
+  class="relative w-full h-auto glass rounded-2xl shadow-2xl border border-white/20 dashboard-image"
+/>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-gray-600 mb-8 font-medium">Trusted by leading companies</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+                <div class="text-gray-400 font-semibold">Acme Corp</div>
+                <div class="text-gray-400 font-semibold">TechStart</div>
+                <div class="text-gray-400 font-semibold">Innovation Inc</div>
+                <div class="text-gray-400 font-semibold">Future Labs</div>
+                <div class="text-gray-400 font-semibold">Global Team</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful features built for collaboration</h2>
+                <p class="text-xl text-gray-600">Everything your team needs to stay organized and productive</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Task Management</h3>
+                    <p class="text-gray-600 leading-relaxed">Organize tasks with intelligent prioritization, auto-categorization, and AI-powered suggestions for optimal workflow.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Real-time Collaboration</h3>
+                    <p class="text-gray-600 leading-relaxed">Work together seamlessly with instant updates, live comments, and activity feeds that keep everyone in sync.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advanced Analytics</h3>
+                    <p class="text-gray-600 leading-relaxed">Gain insights into team productivity, track progress, and make data-driven decisions with detailed reports and dashboards.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI-Powered Insights</h3>
+                    <p class="text-gray-600 leading-relaxed">Let AI handle routine work. Get smart suggestions, automated summaries, and intelligent task recommendations.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Enterprise Security</h3>
+                    <p class="text-gray-600 leading-relaxed">Bank-level encryption, SSO, and advanced permissions keep your data safe and your team protected.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-xl transition">
+                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10a4 4 0 11-8 0 4 4 0 018 0zM9 13H5v8h8v-8h-4m6-4h6m-3 3v6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Seamless Integrations</h3>
+                    <p class="text-gray-600 leading-relaxed">Connect with Slack, Microsoft Teams, Zapier, and 100+ other tools to fit your existing workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">How TaskFlow Works</h2>
+                <p class="text-xl text-gray-600">Get started in minutes, not days</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="scroll-reveal stagger-item relative">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">1</div>
+                        <h3 class="text-xl font-bold mb-3">Sign Up</h3>
+                        <p class="text-gray-600">Create your account in seconds and invite your team.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-20 left-1/2 w-full h-1 bg-gradient-to-r from-indigo-300 to-transparent"></div>
+                </div>
+                
+                <div class="scroll-reveal stagger-item relative">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">2</div>
+                        <h3 class="text-xl font-bold mb-3">Set Up</h3>
+                        <p class="text-gray-600">Create projects and connect your existing tools.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-20 left-1/2 w-full h-1 bg-gradient-to-r from-indigo-300 to-transparent"></div>
+                </div>
+                
+                <div class="scroll-reveal stagger-item relative">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">3</div>
+                        <h3 class="text-xl font-bold mb-3">Collaborate</h3>
+                        <p class="text-gray-600">Start managing tasks and collaborating with your team.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-20 left-1/2 w-full h-1 bg-gradient-to-r from-indigo-300 to-transparent"></div>
+                </div>
+                
+                <div class="scroll-reveal stagger-item">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">4</div>
+                        <h3 class="text-xl font-bold mb-3">Scale</h3>
+                        <p class="text-gray-600">Grow your team with advanced features and insights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600">Choose the perfect plan for your team</p>
+            </div>
+            
+            <!-- Pricing Toggle -->
+            <div class="flex justify-center mb-12 scroll-reveal">
+                <div class="inline-flex gap-4 p-1 bg-gray-100 rounded-lg">
+                    <button class="pricing-toggle px-6 py-2 rounded-lg font-semibold transition" data-plan="monthly" onclick="togglePricing('monthly')">
+                        Monthly
+                    </button>
+                    <button class="pricing-toggle px-6 py-2 rounded-lg font-semibold transition" data-plan="yearly" onclick="togglePricing('yearly')">
+                        Yearly
+                        <span class="ml-2 text-green-600 font-bold">Save 20%</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter Plan -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-200 hover:border-indigo-300 hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                    <p class="text-gray-600 mb-6">Perfect for small teams</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">$29</span>
+                        <span class="text-gray-600 ml-2 pricing-period-monthly">/month</span>
+                        <span class="text-gray-600 ml-2 pricing-period-yearly hidden">/year</span>
+                    </div>
+                    <button class="w-full py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition mb-8" onclick="trackEvent('pricing_click', 'starter')">
+                        Get Started
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Up to 5 team members</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>5 active projects</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Basic analytics</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Professional Plan -->
+                <div class="scroll-reveal stagger-item bg-gradient-bg p-8 rounded-2xl shadow-2xl relative ring-2 ring-indigo-600 scale-105 pricing-card-popular">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white text-indigo-600 px-6 py-2 rounded-full text-xs font-bold shadow-lg popular-badge">
+                        ✨ Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-black">Professional</h3>
+                    <p class="text-black mb-6">Best for growing teams</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold text-black">$79</span>
+                        <span class="text-black ml-2 pricing-period-monthly">/month</span>
+                        <span class="text-indigo-100 ml-2 pricing-period-yearly hidden">/year</span>
+                    </div>
+                    <button class="w-full py-3 bg-white text-black rounded-lg font-bold hover:bg-indigo-50 transition mb-8 btn-hover cta-button shadow-lg border-2 border-white" onclick="trackEvent('pricing_click', 'professional')">
+                        Start Free Trial
+                    </button>
+                    <ul class="space-y-4 text-black">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span class="text-black">Up to 25 team members</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span class="text-black">Uspanited projects</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Advanced analytics</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>API access</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="scroll-reveal stagger-item bg-white p-8 rounded-2xl border border-gray-200 hover:border-indigo-300 hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                    <p class="text-gray-600 mb-6">For large organizations</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-bold">Custom</span>
+                    </div>
+                    <button class="w-full py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition mb-8" onclick="trackEvent('pricing_click', 'enterprise')">
+                        Contact Sales
+                    </button>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Unlimited everything</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>SSO & SAML</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Dedicated account manager</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>24/7 phone support</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></path></svg>
+                            <span>Custom integrations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Loved by teams everywhere</h2>
+                <p class="text-xl text-gray-600">See what our users have to say</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="scroll-reveal stagger-item glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">John Davis</h4>
+                            <p class="text-sm text-gray-600">CEO, Tech Startup</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-4">
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                    </div>
+                    <p class="text-gray-700">"TaskFlow transformed how our team works. We went from scattered emails to a unified system. Productivity is up 40%, and everyone loves it."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="scroll-reveal stagger-item glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            SL
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Lee</h4>
+                            <p class="text-sm text-gray-600">Product Manager, SaaS Co</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-4">
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                    </div>
+                    <p class="text-gray-700">"The AI features are incredible. Smart prioritization saves me hours each week. The support team is responsive and genuinely helpful."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="scroll-reveal stagger-item glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Mike Kim</h4>
+                            <p class="text-sm text-gray-600">Operations Lead, Enterprise</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-4">
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                        <span class="text-yellow-400">★</span>
+                    </div>
+                    <p class="text-gray-700">"Enterprise-grade security with consumer-grade simplicity. That's TaskFlow. Our team went remote seamlessly, and this was crucial."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Got questions? We have answers</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="scroll-reveal faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition flex justify-between items-center faq-button" onclick="toggleFAQ(this)">
+                        <span>What is TaskFlow and who is it for?</span>
+                        <svg class="w-6 h-6 text-indigo-600 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </button>
+                    <div class="px-8 py-6 bg-gray-50 hidden faq-content">
+                        <p class="text-gray-700">TaskFlow is an intelligent task management platform designed for teams of all sizes. From startups to enterprises, if your team needs to manage tasks, collaborate, and boost productivity, TaskFlow is built for you. It works particularly well for distributed teams.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="scroll-reveal faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition flex justify-between items-center faq-button" onclick="toggleFAQ(this)">
+                        <span>Can I import my existing data?</span>
+                        <svg class="w-6 h-6 text-indigo-600 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </button>
+                    <div class="px-8 py-6 bg-gray-50 hidden faq-content">
+                        <p class="text-gray-700">Absolutely! We support importing from Asana, Monday.com, Jira, Trello, and more. Our onboarding team can also help with custom data imports. Most customers are fully set up within a day.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="scroll-reveal faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition flex justify-between items-center faq-button" onclick="toggleFAQ(this)">
+                        <span>Is there a free trial?</span>
+                        <svg class="w-6 h-6 text-indigo-600 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </button>
+                    <div class="px-8 py-6 bg-gray-50 hidden faq-content">
+                        <p class="text-gray-700">Yes! We offer a 14-day free trial with full access to all features. No credit card required. You'll get instant access to the Professional plan, so you can test everything before deciding.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="scroll-reveal faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition flex justify-between items-center faq-button" onclick="toggleFAQ(this)">
+                        <span>How secure is my data?</span>
+                        <svg class="w-6 h-6 text-indigo-600 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </button>
+                    <div class="px-8 py-6 bg-gray-50 hidden faq-content">
+                        <p class="text-gray-700">Security is our top priority. We use 256-bit AES encryption for all data at rest, TLS 1.3 for data in transit, and have SOC 2 Type II certification. Enterprise plans include SSO, SAML, and advanced permission controls.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="scroll-reveal faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition flex justify-between items-center faq-button" onclick="toggleFAQ(this)">
+                        <span>What integrations are supported?</span>
+                        <svg class="w-6 h-6 text-indigo-600 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </button>
+                    <div class="px-8 py-6 bg-gray-50 hidden faq-content">
+                        <p class="text-gray-700">We integrate with 100+ apps including Slack, Microsoft Teams, Zapier, Google Workspace, Salesforce, and more. If we don't have an integration yet, our API makes it easy to build custom connections.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center scroll-reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to transform your workflow?</h2>
+            <p class="text-xl text-indigo-100 mb-10">Join thousands of teams already using TaskFlow to work smarter.</p>
+            
+            <!-- Email Signup Form -->
+            <form class="flex flex-col sm:flex-row gap-3 mb-8 max-w-md mx-auto" id="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                <input 
+                    type="email" 
+                    placeholder="your@email.com" 
+                    class="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-300" 
+                    required 
+                    aria-label="Email address"
+                >
+                <button type="submit" class="px-8 py-4 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition btn-hover">
+                    Get Started Free
+                </button>
+            </form>
+            
+            <p class="text-indigo-100 text-sm">
+                No credit card required • 14-day free trial • Cancel anytime
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-5 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">T</span>
+                        </div>
+                        <span class="font-bold text-white text-lg">TaskFlow</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">Intelligent task management for modern teams.</p>
+                </div>
+                
+                <!-- Product -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition">Integrations</a></li>
+                        <li><a href="#" class="hover:text-white transition">API</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">About</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition">Status</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms</a></li>
+                        <li><a href="#" class="hover:text-white transition">Security</a></li>
+                        <li><a href="#" class="hover:text-white transition">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-sm">&copy; 2026 TaskFlow. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition" aria-label="Twitter">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20v-7.1h-2.5V9.012h2.5V7.151c0-2.444 1.492-3.77 3.67-3.77 1.012 0 1.882.075 2.137.109v2.478h-1.469c-1.15 0-1.374.546-1.374 1.346v1.763h2.744l-.354 3.883h-2.39V20H8.29z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition" aria-label="GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Analytics & Tracking Placeholders -->
+    <script src="script.js"></script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TaskFlow",
+      "description": "Intelligent task management platform for modern teams",
+      "url": "https://taskflow.ai",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "29",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "2500"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "TaskFlow Inc"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TaskFlow",
+      "url": "https://taskflow.ai",
+      "logo": "https://taskflow.ai/logo.png",
+      "sameAs": [
+        "https://twitter.com/taskflow",
+        "https://linkedin.com/company/taskflow",
+        "https://github.com/taskflow"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-xxx-xxx-xxxx",
+        "contactType": "Sales"
+      }
+    }
+    </script>
+</body>
+</html>
